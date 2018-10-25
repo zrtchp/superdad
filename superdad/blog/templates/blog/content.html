@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }}--超级奶爸{% endblock %}
+{% block content %}
+<div class="row text-center vertical-middle-sm">
+    <h1>{{ article.title }}</h1>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-8">
+        <p class="text-center"><span>{{ article.author.username }}</span><span style="margin-left:20px">{{ publish }}</span></p>
+        <div>{{ article.body }}</div>
+    </div>
+    <div class="col-xs-6 col-md-4">
+        <h2>关于本站</h2>
+        <p>超级奶爸带娃日记：superdad.xyz</p>
+    </div>
+</div>
+{% endblock %}
