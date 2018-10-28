@@ -24,7 +24,7 @@ def register(request):
     if request.method == 'POST':
         user_form=registrationform(request.POST)
         userprofile_form=userprofileform(request.POST)
-        if user_form.is_valid()*userprofile_form.is_vaild():
+        if user_form.is_valid()*userprofile_form.is_valid():
             new_user=user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
