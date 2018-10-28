@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import userprofile
 
-# Register your models here.
+class userprofileadmin(admin.ModelAdmin):
+    list_display=('user',)
