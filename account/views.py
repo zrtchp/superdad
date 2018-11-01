@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate,login
 from .forms import loginform,registrationform,userprofileform
+from django.contrib.auth.decorators import login_required
+from .models import userinfo, userprofile
+from django.contrib.auth.models import User
+from django.urls import reverse_lazy
 
 def user_login(request):
     if request.method == "POST":
@@ -31,6 +35,7 @@ def register(request):
             new_profile=userprofile_form.save(commit=False)
             new_profile.user=new_user
             new_profile.save()
+            userinfo.objects.create(user=new_user)
             return HttpResponse("成功")
         else:
             return HttpResponse('注册失败')
@@ -39,3 +44,9 @@ def register(request):
         userprofile_form=userprofileform()
         return render(request,'account/register.html',{'form':user_form,'profile':userprofile_form})
         
+@login_required(login_url=reverse_lazy('account:user_login'))
+def myself(request):
+    user = User.objects.get(username=request.user.username)
+    userprofile1 = userprofile.objects.get(user=user)
+    userinfo1 = userinfo.objects.get(user=user)
+    return render(request, "account/myself.html", {'user':user, 'userinfo':userinfo1,'userprofile':userprofile1})

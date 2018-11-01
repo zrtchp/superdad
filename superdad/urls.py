@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path,include,reverse_lazy
 
 urlpatterns = [
-    path('',include('blog.urls',namespace="blog")),
+    path('blog/',include('blog.urls',namespace="blog")),
     path('admin/', admin.site.urls),
     path('account/',include('account.urls',namespace="account")),
     path('pwd-reset/',include('password_reset.urls',namespace='pwd_reset')),

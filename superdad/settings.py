@@ -131,7 +131,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR,"static"),
 )
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'blog/'
 
 #EMAIL_HOST = 'smtp.qq.com'
 #EMAIL_HOST_USER = "522400881@qq.com"
