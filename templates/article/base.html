@@ -2,19 +2,23 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css">-->
 </head>
 <body>
-    {% include "header.html" %}
-    <div class="container">
-        {% block content %}{% endblock %}
+<div class="container">
+    {% include 'article/header.html' %}
+    <div class="col-md-2">
+    {% include 'article/leftslider.html' %}
     </div>
-    {% include "footer.html" %}
-    {% block javascript %}{% endblock %}
+    <div class="col-md-10">
+    {% block content %}
+    {% endblock %}
+    </div>
+    {% include 'footer.html' %}
+</div>
 </body>
 </html>

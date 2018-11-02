@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ results }}{% endblock %}
+{% block content %}
+{% if results == "注册成功" %}
+<div class="row text-center vertical-middle-sm">
+    <p>注册成功，现在<a href="{% url 'account:user_login' %}">登录</a>？</p>
+</div>
+{% else %}
+<div class="row text-center vertical-middle-sm">
+    <p>注册失败，<a href="{% url 'account:user_register' %}">返回</a>重试</p>
+</div>
+{% endif %}
+{% endblock %}

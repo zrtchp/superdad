@@ -4,7 +4,7 @@
 {% block content %}
 <div class="row text-center vertical-middle-sm">
     <h1>注册</h1>
-    <p>如果您已经注册，请点击<a href="{% url 'account:user_login' %}"></a>登录</a>。</p>
+    <p>如果您已经注册，请点击<a href="{% url 'account:user_login' %}">登录</a>。</p>
     <form class="form-horizontal" action="{% url 'account:user_register' %}" method="POST">{% csrf_token %}
         <div class="form-group">
             <label for="{{ form.username.id_for_label }}" class="col-md-5 control-label">用户名</label>

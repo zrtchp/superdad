@@ -36,9 +36,9 @@ def register(request):
             new_profile.user=new_user
             new_profile.save()
             userinfo.objects.create(user=new_user)
-            return HttpResponse("成功")
+            return render(request,'account/register-results.html',{'results':'注册成功',})
         else:
-            return HttpResponse('注册失败')
+            return render(request,'account/register-results.html',{'results':'注册失败',})
     if request.method == 'GET':
         user_form=registrationform()
         userprofile_form=userprofileform()
