@@ -83,3 +83,14 @@ def myself_edit(request):
         userprofile_form = userprofileform(initial={'birth':userprofile1.birth,"phone":userprofile1.phone})
         userinfo_form = userinfoform(initial={'school':userinfo1.school,'company':userinfo1.company,'profession':userinfo1.profession,'address':userinfo1.address,'aboutme':userinfo1.aboutme})
         return render(request,'account/myself_edit.html',{'user_form':user_form,'userprofile_form':userprofile_form,'userinfo_form':userinfo_form})
+
+@login_required(login_url=reverse_lazy('account:login'))
+def my_image(request):
+    if request.method == "POST":
+        img = request.POST['img']
+        userinfo1 = userinfo.objects.get(user=request.user.id)
+        userinfo1.photo = img
+        userinfo1.save()
+        return HttpResponse("1")
+    else:
+        return render(request,'account/imagecrop.html',)

@@ -6,7 +6,7 @@ class userprofileadmin(admin.ModelAdmin):
     list_filter=("phone",)
 
 class userinfoadmin(admin.ModelAdmin):
-    list_display=("user",'school','company','profession','address','aboutme')
+    list_display=("user",'school','company','profession','address','aboutme','photo')
     list_filter=("user",)
     
 admin.site.register(userprofile,userprofileadmin)
